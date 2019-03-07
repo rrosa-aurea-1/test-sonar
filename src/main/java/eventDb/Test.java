@@ -45,4 +45,22 @@ public class Test {
         //resultSet.close();
     }
 
+    private static void runStatement() throws SQLException {
+                Connection connection = null;
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement("select");
+            resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+
+            PreparedStatement stmt = null;
+
+            resultSet.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            //closeStatement(resultSet);
+        }
+    }
 }
